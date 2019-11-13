@@ -1,18 +1,18 @@
  // select all elements
-const start = document.getElementById("start");
-const quiz = document.getElementById("quiz");
-const question = document.getElementById("question");
-const qImg = document.getElementById("qImg");
-const choiceA = document.getElementById("A");
-const choiceB = document.getElementById("B");
-const choiceC = document.getElementById("C");
-const counter = document.getElementById("counter");
-const timeGauge = document.getElementById("timeGauge");
-const progress = document.getElementById("progress");
-const scoreDiv = document.getElementById("scoreContainer");
+var start = document.getElementById("start");
+var quiz = document.getElementById("quiz");
+var question = document.getElementById("question");
+var qImg = document.getElementById("qImg");
+var choiceA = document.getElementById("A");
+var choiceB = document.getElementById("B");
+var choiceC = document.getElementById("C");
+var counter = document.getElementById("counter");
+var timeGauge = document.getElementById("timeGauge");
+var progress = document.getElementById("progress");
+var scoreDiv = document.getElementById("scoreContainer");
 
-// create our questions
-let questions = [
+// create our questions //let
+var questions = [
     {
         question : "Which of these describes Javascript?",
         choiceA : "code",
@@ -48,18 +48,18 @@ let questions = [
 
 // create some variables
 
-const lastQuestion = questions.length - 1;
-let runningQuestion = 0;
-let count = 0;
-const questionTime = 10; // 10s
-const gaugeWidth = 150; // 150px
-const gaugeUnit = gaugeWidth / questionTime;
-let TIMER;
-let score = 0;
+var lastQuestion = questions.length - 1;
+var runningQuestion = 0;
+var count = 0;
+var questionTime = 10; // 10s
+var gaugeWidth = 150; // 150px
+var gaugeUnit = gaugeWidth / questionTime;
+var TIMER;
+var score = 0;
 
-// render a question
+// render a question //per stack overflow
 function renderQuestion(){
-    let q = questions[runningQuestion];
+    var q = questions[runningQuestion];
     
     question.innerHTML = "<p>"+ q.question +"</p>";
     qImg.innerHTML = "<img src="+ q.imgSrc +">";
@@ -82,7 +82,7 @@ function startQuiz(){
 
 // render progress
 function renderProgress(){
-    for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
+    for(var qIndex = 0; qIndex <= lastQuestion; qIndex++){
         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
     }
 }
@@ -149,7 +149,7 @@ function scoreRender(){
     scoreDiv.style.display = "block";
     
     // calculate the amount of question percent answered by the user
-    const scorePerCent = Math.round(100 * score/questions.length);
+    var scorePerCent = Math.round(100 * score/questions.length);
     
     scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
 }
